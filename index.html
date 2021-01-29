@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON Tutorial</h1>
+    <div id="load-data"></div>
+    
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : "dictionary.json" ,
+                type : "GET" ,
+                success : function(data){
+                    //$("#load-data").append(data.id + " "+ data.title + " <br>" + data.body ) ;
+                    console.log(data.DEFIGURE) ;
+                    //$.each( data , function(key , value){
+                    //    $("#load-data").append("DEFIGURE" + " " + value.DEFIGURE + "<br>")
+                    //})
+                }
+            })
+        });
+    </script>
+</body>
+</html>
