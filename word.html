@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getParameterByName( name ){
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+ var word = getParameterByName('word') ;
+ word =  window.location.href.substr(27) ;
+
+    </script>
+    <script src="http://localhost/JSON/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : "http://localhost/JSON/dictionary.json" ,
+                type : "GET" ,
+                success : function(data){
+                    //$("#load-data").append(data.id + " "+ data.title + " <br>" + data.body ) ;
+                    console.log(data[word]) ;
+                    //$.each( data , function(key , value){
+                    //    $("#load-data").append("DEFIGURE" + " " + value.DEFIGURE + "<br>")
+                    //})
+                }
+            })
+        });
+    </script>
+</body>
+</html>
